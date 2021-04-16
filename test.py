@@ -1,8 +1,17 @@
 from selenium import webdriver
 import time
+import datetime
+from selenium.webdriver.common.action_chains import ActionChains
 from datetime import datetime
+from datetime import date
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+
+currentdateandtime = datetime.now()
+print(currentdateandtime)
+
+currentdate = date.today()
+print(currentdate)
 
 driver = webdriver.Firefox(executable_path="C:\TestFiles\geckodriver.exe")
 driver.get('http://eve.ii.pw.edu.pl:9007/#/start_page')
@@ -38,6 +47,10 @@ assert string7 == "Application parameters"
 #print(string8)
 #print(current_time)
 #assert string8 == current_time
+
+#currentdate = date.today()
+#print(currentdate)
+
 
 string9 = driver.find_element_by_xpath("//li[@id='db_version']").text
 assert string9 == "db version: PostgreSQL 9.4.18 on x86_64-unknown-linux-gnu"
@@ -77,6 +90,24 @@ assert button3 == "Create new user"
 
 button4 = driver.find_element_by_id("loginAsGuestButton").text
 assert button4 == "Log in as guest"
+
+linkview1 = driver.find_element_by_xpath("//a[@id='file_formats_href']")
+ActionChains(driver).move_to_element(linkview1).perform()
+time.sleep(3)
+tooltiptext = linkview1.get_attribute("title")
+print(tooltiptext)
+assert tooltiptext == "Click to view description of input file formats accepted by application and output file formats produced by application"
+time.sleep(3)
+
+linkview2 = driver.find_element_by_xpath("//a[@id='algorithms_href']")
+ActionChains(driver).move_to_element(linkview2).perform()
+time.sleep(3)
+tooltiptext1 = linkview2.get_attribute("title")
+print(tooltiptext1)
+assert tooltiptext1 == "Click to view description of parameters and algorithms used in application"
+time.sleep(3)
+#assert linkview1 == "Click to view description of input file formats accepted by application and output file formats produced by application"
+
 ###########################PL###########################################
 button = driver.find_element_by_xpath("//body/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]")
 button.click()
@@ -148,6 +179,21 @@ assert button3 == "Dodaj użytkownika"
 button4 = driver.find_element_by_id("loginAsGuestButton").text
 assert button4 == "Zaloguj się jako gość"
 
+linkview3 = driver.find_element_by_xpath("//a[@id='file_formats_href']")
+ActionChains(driver).move_to_element(linkview3).perform()
+time.sleep(3)
+tooltiptext2 = linkview3.get_attribute("title")
+print(tooltiptext2)
+assert tooltiptext2 == "Kliknij, aby zobaczyć opis formatów plików wejściowych akceptowanych przez aplikację i opis formatów plików wyjściowych produkowanych przez aplikację"
+time.sleep(3)
+
+linkview4 = driver.find_element_by_xpath("//a[@id='algorithms_href']")
+ActionChains(driver).move_to_element(linkview4).perform()
+time.sleep(3)
+tooltiptext3 = linkview4.get_attribute("title")
+print(tooltiptext3)
+assert tooltiptext3 == "Kliknij, aby zobaczyć opis parametrów i algorytmów wykorzystanych w aplikacji"
+time.sleep(3)
 
 
 
