@@ -10,9 +10,6 @@ from selenium.webdriver.common.by import By
 currentdateandtime = datetime.now()
 print(currentdateandtime)
 
-currentdate = date.today()
-print(currentdate)
-
 driver = webdriver.Firefox(executable_path="C:\TestFiles\geckodriver.exe")
 driver.get('http://eve.ii.pw.edu.pl:9007/#/start_page')
 time.sleep(2)
@@ -95,7 +92,6 @@ linkview1 = driver.find_element_by_xpath("//a[@id='file_formats_href']")
 ActionChains(driver).move_to_element(linkview1).perform()
 time.sleep(3)
 tooltiptext = linkview1.get_attribute("title")
-print(tooltiptext)
 assert tooltiptext == "Click to view description of input file formats accepted by application and output file formats produced by application"
 time.sleep(3)
 
@@ -103,10 +99,9 @@ linkview2 = driver.find_element_by_xpath("//a[@id='algorithms_href']")
 ActionChains(driver).move_to_element(linkview2).perform()
 time.sleep(3)
 tooltiptext1 = linkview2.get_attribute("title")
-print(tooltiptext1)
 assert tooltiptext1 == "Click to view description of parameters and algorithms used in application"
 time.sleep(3)
-#assert linkview1 == "Click to view description of input file formats accepted by application and output file formats produced by application"
+
 
 ###########################PL###########################################
 button = driver.find_element_by_xpath("//body/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]")
@@ -183,7 +178,6 @@ linkview3 = driver.find_element_by_xpath("//a[@id='file_formats_href']")
 ActionChains(driver).move_to_element(linkview3).perform()
 time.sleep(3)
 tooltiptext2 = linkview3.get_attribute("title")
-print(tooltiptext2)
 assert tooltiptext2 == "Kliknij, aby zobaczyć opis formatów plików wejściowych akceptowanych przez aplikację i opis formatów plików wyjściowych produkowanych przez aplikację"
 time.sleep(3)
 
@@ -191,7 +185,6 @@ linkview4 = driver.find_element_by_xpath("//a[@id='algorithms_href']")
 ActionChains(driver).move_to_element(linkview4).perform()
 time.sleep(3)
 tooltiptext3 = linkview4.get_attribute("title")
-print(tooltiptext3)
 assert tooltiptext3 == "Kliknij, aby zobaczyć opis parametrów i algorytmów wykorzystanych w aplikacji"
 time.sleep(3)
 
