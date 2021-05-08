@@ -1,3 +1,4 @@
+
 from selenium import webdriver
 import time
 import datetime
@@ -11,7 +12,6 @@ currentdateandtime = datetime.now()
 print(currentdateandtime)
 
 print("selenium tests")
-print("new commit")
 driver = webdriver.Firefox(executable_path="C:\TestFiles\geckodriver.exe")
 driver.get('http://eve.ii.pw.edu.pl:9007/#/start_page')
 time.sleep(2)
