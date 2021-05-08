@@ -10,6 +10,8 @@ from selenium.webdriver.common.by import By
 currentdateandtime = datetime.now()
 print(currentdateandtime)
 
+print("selenium tests")
+
 driver = webdriver.Firefox(executable_path="C:\TestFiles\geckodriver.exe")
 driver.get('http://eve.ii.pw.edu.pl:9007/#/start_page')
 time.sleep(2)
